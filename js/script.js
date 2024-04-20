@@ -1,3 +1,21 @@
+console.log('Hello world');
+
+const h1 = document.querySelector('.heading-primary');
+const year = document.querySelector('.copyright span');
+const myName = 'Habiyaremye Adolphe '
+
+
+const currentDate = new Date().getFullYear();
+console.log(currentDate)
+;
+
+year.textContent = currentDate;  
+
+
+
+
+
+
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
 function checkFlexGap() {
