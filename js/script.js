@@ -5,16 +5,62 @@ const year = document.querySelector('.copyright span');
 const myName = 'Habiyaremye Adolphe '
 
 
+
+
+
+///////////////////////////////////////////////////////////
+// Male navigation work
+ 
+
+const iconEl = document.querySelector('.btn-mobile-nav');
+const headerEl = document.querySelector('.header')
+
+iconEl.addEventListener('click', () => {
+  headerEl.classList.toggle('nav-open');
+})
+
+
+///////////////////////////////////////////////////////////
+// Smooth scrolling animation
+
+const allLinks = document.querySelectorAll('a:link');
+
+console.log(allLinks);
+
+allLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const href = link.getAttribute('href');
+    console.log(href);
+
+    // Scroll to the top
+
+    if (href === '#') window.scrollTo({
+      top:0,
+      behavior: 'smooth'
+    })
+    
+    // Scroll to other links
+    if (href !== '#' && href.startsWith('#')) {
+      const sectionEl = document.querySelector(href);
+      // console.log(sectionEl);
+      sectionEl.scrollIntoView({behavior: 'smooth'});
+    }
+
+    //  Close the mobile nav
+    if (link.classList.contains('main-nav-link')) {
+      headerEl.classList.toggle('nav-open');
+    }
+  })
+})
+
+
+
+
+///////////////////////////////////////////////////////////
+//  Set current year
 const currentDate = new Date().getFullYear();
-console.log(currentDate)
-;
-
-year.textContent = currentDate;  
-
-
-
-
-
+year.textContent = currentDate; 
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
